@@ -1,0 +1,31 @@
+-- ============================================================================
+-- Week 8 Assignment: MySQL Database Backup and Restore
+-- File: week-8-answer.sql
+-- ============================================================================
+
+-- Question 1: Complete Backup of the Existing sales Database
+-- Command:
+-- mysqldump -u root -p sales > sales_backup.sql
+--
+-- Explanation:
+-- This command connects to MySQL as the root user (-u root) and prompts for
+-- the database password (-p) interactively rather than exposing it on the
+-- command line. It exports the structure and data of the existing sales
+-- database and redirects the SQL output into a file named sales_backup.sql.
+-- Regular backups of the sales database before making schema or data changes
+-- are essential because they protect business records against accidental
+-- deletions or updates, failed migrations, hardware failure, and cyber
+-- incidents, enabling reliable disaster recovery and quick rollback.
+
+-- Question 2: Backing Up All Databases Before Server Migration
+-- Command:
+-- mysqldump -u root -p --all-databases > all_databases_backup.sql
+--
+-- Explanation:
+-- This command logs into MySQL as root (-u root), prompts for the password
+-- (-p), and uses the --all-databases flag to export every database on the
+-- MySQL server into a single dump file named all_databases_backup.sql.
+-- Backing up all databases before migrating to another server is critical so
+-- no database, supporting table, or server dataset is left behind, ensuring
+-- a complete migration and a full recovery baseline if issues occur during
+-- or after the move.
